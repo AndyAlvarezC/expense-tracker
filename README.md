@@ -1,54 +1,66 @@
-# React + TypeScript + Vite
+# 💸 Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Description:**  
 
-Currently, two official plugins are available:
+A simple and intuitive expense tracker app to manage your personal finances. Built with **React, TypeScript, and TailwindCSS**, featuring a clean folder structure, reusable components, and good coding practices. Tracks expenses using **Context API** for global state and **localStorage** to persist data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🛠 Technologies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Technology   | Usage                                           |
+|------------|-----------------------------------------------|
+| Vite       | Project setup and bundling                     |
+| React      | Components and UI                              |
+| TypeScript | Static typing and code safety                  |
+| TailwindCSS| Styling, responsive and modern design          |
+| Git/GitHub | Version control                                |
+| Vercel     | Deployment                                     |
+| React Hooks| `useState`, `useEffect`, `useMemo`, `useReducer`, custom hooks for logic |
+| Context API| Global state management                        |
+| localStorage | Persist expenses data                          |
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## ⚡ Demo
+
+[View live project](#https://expense-tracker-manager-app.vercel.app/) 🌐  
+
+---
+
+## 💻 Quick Installation
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/yourusername/expense-tracker.git
+```
+2. **Clone the repository:**
+```bash
+cd expense-tracker
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+3. ** Install dependencies:**
+```bash
+npm install
 ```
+
+4. **Start development server:**
+```bash
+npm run dev
+```
+5. **Open in browser:**
+```bash
+http://localhost:5173
+```
+---
+
+## ✨ Main Features
+
+- **Track your expenses** easily with a simple interface  
+- **Global state management** using Context API  
+- **Persistent storage** with localStorage  
+- **Reusable components** and clean folder structure  
+- **Custom hooks** and helper functions for logic  
+- **Responsive and modern design** with TailwindCSS  
+- **Version control** using Git and GitHub, deployed on Vercel
+
