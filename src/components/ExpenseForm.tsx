@@ -77,6 +77,17 @@ export default function ExpenseForm() {
       {error && <ErrorMessage>{error}</ErrorMessage>}
 
       <div className="flex flex-col gap-2">
+        <label htmlFor="number" className="text-xl">
+          Expense Date:
+        </label>
+        <DatePicker
+          className="bg-slate-100 p-2 border-0"
+          value={expense.date}
+          onChange={handleChangeDate}
+        />
+      </div>
+
+      <div className="flex flex-col gap-2">
         <label htmlFor="expenseName" className="text-xl">
           Expense Name:
         </label>
@@ -124,17 +135,6 @@ export default function ExpenseForm() {
             </option>
           ))}
         </select>
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <label htmlFor="number" className="text-xl">
-          Expense Date:
-        </label>
-        <DatePicker
-          className="bg-slate-100 p-2 border-0"
-          value={expense.date}
-          onChange={handleChangeDate}
-        />
       </div>
 
       <input
