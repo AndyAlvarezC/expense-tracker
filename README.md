@@ -24,7 +24,7 @@ A simple and intuitive expense tracker app to manage your personal finances. Bui
 
 ## ⚡ Demo
 
-[View live project](#https://expense-tracker-manager-app.vercel.app/) 🌐  
+[View live project](https://expense-tracker-manager-app.vercel.app/) 🌐  
 
 ---
 
