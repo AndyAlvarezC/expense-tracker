@@ -49,12 +49,12 @@ export default function ExpenseForm() {
     e.preventDefault()
 
     if (Object.values(expense).includes('')){
-      setError('Todos los campos son obligatorios')
+      setError('All fields are required')
       return
     }
 
     if ((expense.amount - previousAmount) > remainingBudget) {
-      setError("Ese gasto se sale del presupuesto");
+      setError("This expense exceeds the budget");
       return;
     }
 
@@ -70,20 +70,20 @@ export default function ExpenseForm() {
 
   return (
     <form className="space-y-5" onSubmit={handleSubmit}>
-      <legend className="uppercase text-center text-2xl font-black border-b-4 border-blue-500 py-2 ">
-        {state.editingId ? "Actualizar Gasto" : "Nuevo Gasto"}
+      <legend className="uppercase text-center text-2xl font-black border-b-4 border-blue-500 py-2">
+        {state.editingId ? "Update Expense" : "New Expense"}
       </legend>
 
       {error && <ErrorMessage>{error}</ErrorMessage>}
 
       <div className="flex flex-col gap-2">
         <label htmlFor="expenseName" className="text-xl">
-          Nombre Gasto:
+          Expense Name:
         </label>
         <input
           type="text"
           id="expenseName"
-          placeholder="Añade el Nombre del gasto"
+          placeholder="Enter the expense name"
           className="bg-slate-100 p-2"
           name="expenseName"
           onChange={handleChange}
@@ -93,12 +93,12 @@ export default function ExpenseForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor="number" className="text-xl">
-          Cantidad:
+          Amount:
         </label>
         <input
           type="number"
           id="amount"
-          placeholder="Añade la cantidad del gasto: ej. 300"
+          placeholder="Enter the expense amount, e.g., 300"
           className="bg-slate-100 p-2"
           name="amount"
           onChange={handleChange}
@@ -108,16 +108,16 @@ export default function ExpenseForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor="category" className="text-xl">
-          Categoria:
+          Category:
         </label>
         <select
           id="category"
-          className="bg-slate-100 p-2"
+          className="bg-slate-100 p-2 cursor-pointer"
           name="category"
           onChange={handleChange}
           value={expense.category}
         >
-          <option value=""> -- Selecione -- </option>
+          <option value=""> -- Select -- </option>
           {categories.map((category) => (
             <option key={category.id} value={category.id}>
               {category.name}
@@ -128,7 +128,7 @@ export default function ExpenseForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor="number" className="text-xl">
-          Fecha Gasto:
+          Expense Date:
         </label>
         <DatePicker
           className="bg-slate-100 p-2 border-0"
@@ -140,7 +140,7 @@ export default function ExpenseForm() {
       <input
         type="submit"
         className="bg-blue-600 cursor-pointer w-full p-2 text-white uppercase font-bold rounded-lg"
-        value={state.editingId ? 'Guardar Cambios' : "Registrar Gasto"}
+        value={state.editingId ? 'Save Changes' : "Add Expense"}
       />
     </form>
   );

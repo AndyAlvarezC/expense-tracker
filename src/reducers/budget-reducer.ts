@@ -5,6 +5,8 @@ export type BudgetActions =
   { type: 'add-budget', payload: { budget: number } } |
   { type: 'show-modal' } |
   { type: 'close-modal' } |
+    { type: 'show-reset-modal' } |
+  { type: 'close-reset-modal' } |
   { type: 'add-expense', payload: { expense: DraftExpense } } |
   { type: 'remove-expense', payload: { id: Expense['id'] } } | 
   { type: 'get-expense-by-id', payload: { id: Expense['id'] } } |
@@ -18,6 +20,7 @@ export type BudgetState = {
   expenses: Expense[]
   editingId: Expense['id']
   currentCategory: Category['id']
+  resetModal: boolean 
 }
 
 const initialBudget = () : number => {
@@ -35,7 +38,8 @@ export const initialState: BudgetState = {
   modal: false,
   expenses: localStorageExpense(),
   editingId: "",
-  currentCategory: ''
+  currentCategory: '',
+  resetModal: false
 };
 
 const createExpense = (draftExpense : DraftExpense) : Expense => {
@@ -70,6 +74,21 @@ export const budgetReducer = (
         editingId: ''
       };
   }
+
+  if (action.type === 'show-reset-modal') {
+    return {
+      ...state,
+      resetModal: true
+    }
+  }
+
+  if (action.type === 'close-reset-modal') {
+    return {
+      ...state,
+      resetModal: false
+    }
+  }
+
   
   if (action.type === 'add-expense') {
     const expense = createExpense(action.payload.expense)
@@ -105,10 +124,17 @@ export const budgetReducer = (
   }
 
   if (action.type === 'reset-app') {
+    localStorage.removeItem('budget')
+    localStorage.removeItem('expenses')
+
     return {
       ...state,
       budget: 0,
       expenses: [],
+      resetModal: false,
+      modal: false,
+      editingId: '',
+      currentCategory: ''
     }
   }
 
